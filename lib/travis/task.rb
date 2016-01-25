@@ -72,7 +72,7 @@ module Travis
       def http
         @http ||= Faraday.new(http_options) do |f|
           f.request :url_encoded
-          f.adapter :net_http
+          f.adapter :excon
         end
       end
 

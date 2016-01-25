@@ -19,6 +19,8 @@ gem 'roadie'
 gem 'roadie-rails',    '~> 1.0'
 gem 'multi_json'
 
+gem 'excon'
+
 group :test do
   gem 'rspec',         '~> 2.14.0'
   gem 'mocha',         '~> 0.10.0'
