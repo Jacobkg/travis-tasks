@@ -18,8 +18,11 @@ module Travis
             Array(targets).each do |target|
               begin
                 send_webhook(target)
+              rescue Timeout::Error => toe
+                error "task=webhook status=failed url=#{target} error=#{toe.class}"
+                errors[target] = toe.message
               rescue => e
-                error "task=webhook status=failed url=#{target}"
+                error "task=webhook status=failed url=#{target} error=#{e.class}"
                 errors[target] = e.message
               end
             end
